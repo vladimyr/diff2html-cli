@@ -42,6 +42,11 @@
 
   Utils.prototype.readStdin = function(callback) {
     var content = '';
+
+    if (process.stdin.isTTY) {
+      return callback(null, content);
+    }
+
     process.stdin.resume();
     process.stdin.on('data', function(buf) {
       content += buf.toString('utf8');

@@ -28,18 +28,23 @@
 
   Diff2HtmlInterface.prototype.getInput = function getInput(inputType, inputArgs, callback) {
     var that = this;
-    switch (inputType) {
-      case 'file':
-        utils.readFile(inputArgs[0], callback);
-        break;
+    utils.readStdin(function(err, content) {
+      if (err) {
+        return callback(err, content);
+      }
+      if (content) {
+        return callback(err, content);
+      }
 
-      case 'stdin':
-        utils.readStdin(callback);
-        break;
+      switch (inputType) {
+        case 'file':
+          utils.readFile(inputArgs[0], callback);
+          break;
 
-      default:
-        that._runGitDiff(inputArgs, callback);
-    }
+        default:
+          that._runGitDiff(inputArgs, callback);
+      }
+    });
   };
 
   Diff2HtmlInterface.prototype._runGitDiff = function(gitArgsArr, callback) {
