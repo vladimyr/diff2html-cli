@@ -66,7 +66,7 @@ Diff to Html generates pretty HTML diffs from unified and git diff output in you
       --hwt, --htmlWrapperTemplate      Path to custom template to be rendered when using the "html" output format [string]
       -f, --format                      Output format   [choices: "html", "json"] [default: "html"]
       -d, --diff                        Diff style   [choices: "word", "char"] [default: "word"]
-      -i, --input                       Diff input source   [choices: "file", "command", "stdin"] [default: "command"]
+      -i, --input                       Diff input source   [choices: "file", "command"] [default: "command"]
       -o, --output                      Output destination   [choices: "preview", "stdout"] [default: "preview"]
       -u, --diffy                       Upload to diffy.org   [choices: "browser", "pbcopy", "print"]
       -F, --file                        Send output to file (overrides output option)   [string]
@@ -79,7 +79,7 @@ Diff to Html generates pretty HTML diffs from unified and git diff output in you
              in the browser and input from git diff command
       diff2html -i file -- my-file-diff.diff
           -> reading the input from a file
-      diff -u file1.txt file2.txt | diff2html -i stdin
+      diff -u file1.txt file2.txt | diff2html
           -> reading diff from stdin
       diff2html -f json -o stdout -- -M HEAD~1
           -> print json format to stdout

@@ -98,7 +98,7 @@ var argv = yargs.usage('Usage: diff2html [options] -- [diff args]')
       describe: 'Diff input source',
       nargs: 1,
       type: 'string',
-      choices: ['file', 'command', 'stdin'],
+      choices: ['file', 'command'],
       default: 'command'
     }
   })
